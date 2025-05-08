@@ -26,7 +26,6 @@ BEGIN
             ADD PRIMARY KEY (`entity_id`),
             DROP KEY `CATALOG_CATEGORY_ENTITY_CREATED_IN`,
             DROP KEY `CATALOG_CATEGORY_ENTITY_UPDATED_IN`,
-            DROP KEY `CAT_CTGR_ENTT_ENTT_ID_SEQUENCE_CAT_CTGR_SEQUENCE_VAL`,
             DROP KEY `CATALOG_CATEGORY_ENTITY_ENTITY_ID`;
         ALTER TABLE `catalog_category_entity_datetime`
             CHANGE `row_id` `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
@@ -59,16 +58,7 @@ BEGIN
             DROP KEY `CATALOG_CATEGORY_ENTITY_VARCHAR_ROW_ID`,
             ADD KEY `CATALOG_CATEGORY_ENTITY_VARCHAR_ENTITY_ID` (`entity_id`);
         ALTER TABLE `catalog_eav_attribute`
-            DROP COLUMN `is_pagebuilder_enabled`,
-            DROP COLUMN `is_displayed_in_autocomplete`,
-            DROP COLUMN `is_used_in_spellcheck`,
-            DROP COLUMN `facet_min_coverage_rate`,
-            DROP COLUMN `facet_max_size`,
-            DROP COLUMN `facet_sort_order`,
-            DROP COLUMN `display_pattern`,
-            DROP COLUMN `display_precision`,
-            DROP COLUMN `sort_order_asc_missing`,
-            DROP COLUMN `sort_order_desc_missing`;
+            DROP COLUMN `is_pagebuilder_enabled`;
         ALTER TABLE `catalog_product_bundle_option`
             CHANGE `option_id` `option_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Option ID',
             DROP PRIMARY KEY,
@@ -111,8 +101,6 @@ BEGIN
             CHANGE `row_id` `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
             DROP INDEX `CATALOG_PRODUCT_ENTITY_INT_ROW_ID_ATTRIBUTE_ID_STORE_ID`,
             ADD UNIQUE KEY `CATALOG_PRODUCT_ENTITY_INT_ENTITY_ID_ATTRIBUTE_ID_STORE_ID` (`entity_id`,`attribute_id`,`store_id`);
-        ALTER TABLE `catalog_product_entity_media_gallery`
-            DROP KEY `CATALOG_PRODUCT_ENTITY_MEDIA_GALLERY_VALUE`;
         ALTER TABLE `catalog_product_entity_media_gallery_value`
             CHANGE `row_id` `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
             DROP KEY `CATALOG_PRODUCT_ENTITY_MEDIA_GALLERY_VALUE_ROW_ID`,
@@ -148,7 +136,6 @@ BEGIN
             ADD PRIMARY KEY (`rule_id`),
             DROP KEY `CATALOGRULE_CREATED_IN`,
             DROP KEY `CATALOGRULE_UPDATED_IN`,
-            DROP KEY `CATALOGRULE_RULE_ID_SEQUENCE_CATALOGRULE_SEQUENCE_VALUE`,
             DROP KEY `CATALOGRULE_RULE_ID`;
         ALTER TABLE `catalogrule_customer_group`
             CHANGE `row_id` `rule_id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Entity ID',
@@ -182,7 +169,6 @@ BEGIN
             ADD PRIMARY KEY (`page_id`),
             DROP KEY `CMS_PAGE_CREATED_IN`,
             DROP KEY `CMS_PAGE_UPDATED_IN`,
-            DROP KEY `CMS_PAGE_PAGE_ID_SEQUENCE_CMS_PAGE_SEQUENCE_VALUE`,
             DROP KEY `CMS_PAGE_PAGE_ID`;
         ALTER TABLE `cms_page_store`
             CHANGE `row_id` `page_id` smallint(6) NOT NULL COMMENT 'Entity ID',
@@ -199,13 +185,8 @@ BEGIN
             DROP KEY `CUSTOMER_ENTITY_GROUP_ID`;
         ALTER TABLE `email_contact`
             CHANGE `last_subscribed_at` `last_subscribed_at` timestamp NULL DEFAULT NULL COMMENT 'Last subscribed date';
-        ALTER TABLE `klarna_core_order`
-            DROP KEY `KLARNA_KCO_ORDER_ORDER_ID_SALES_ORDER_ENTITY_ID`;
         ALTER TABLE `klarna_payments_quote`
             DROP KEY `KLARNA_PAYMENTS_QUOTE_QUOTE_ID_QUOTE_ENTITY_ID`;
-        ALTER TABLE `queue_message_status`
-            DROP KEY `QUEUE_MESSAGE_ID_QUEUE_MESSAGE_STATUS_MESSAGE_ID`,
-            ADD KEY `QUEUE_MESSAGE_STATUS_MESSAGE_ID_QUEUE_MESSAGE_ID` (`message_id`);
         ALTER TABLE `quote`
             DROP COLUMN `customer_balance_amount_used`,
             DROP COLUMN `base_customer_bal_amount_used`,
@@ -272,9 +253,7 @@ BEGIN
             DROP COLUMN `giftregistry_item_id`,
             DROP COLUMN `reward_points_balance`,
             DROP COLUMN `base_reward_currency_amount`,
-            DROP COLUMN `reward_currency_amount`,
-            DROP COLUMN `region_select`,
-            DROP COLUMN `recipient_email`;
+            DROP COLUMN `reward_currency_amount`;
         ALTER TABLE `quote_address_item`
             DROP COLUMN `gw_id`,
             DROP COLUMN `gw_base_price`,
@@ -282,7 +261,6 @@ BEGIN
             DROP COLUMN `gw_base_tax_amount`,
             DROP COLUMN `gw_tax_amount`;
         ALTER TABLE `quote_item`
-            DROP COLUMN `is_excluded_product`,
             DROP COLUMN `gw_id`,
             DROP COLUMN `gw_base_price`,
             DROP COLUMN `gw_price`,
@@ -449,8 +427,6 @@ BEGIN
             CHANGE `row_id` `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule ID',
             DROP PRIMARY KEY,
             ADD PRIMARY KEY (`rule_id`,`website_id`);
-        ALTER TABLE `search_query`
-            DROP COLUMN `is_spellchecked`;
         TRUNCATE wishlist;
         TRUNCATE email_wishlist;
         ALTER TABLE `wishlist`
