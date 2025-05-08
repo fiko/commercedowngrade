@@ -120,10 +120,9 @@ BEGIN
             DROP KEY `CAT_PRD_ENTT_MDA_GLR_VAL_ROW_ID_VAL_ID_STORE_ID`,
             ADD KEY `CAT_PRD_ENTT_MDA_GLR_VAL_ENTT_ID_VAL_ID_STORE_ID` (`entity_id`,`value_id`,`store_id`);
         ALTER TABLE `catalog_product_entity_media_gallery_value_to_entity`
-            CHANGE `row_id` `entity_id` int(10) unsigned NOT NULL COMMENT 'Product Entity ID',
-            DROP INDEX `CAT_PRD_ENTT_MDA_GLR_VAL_TO_ENTT_VAL_ID_ROW_ID`,
-            ADD UNIQUE KEY `CAT_PRD_ENTT_MDA_GLR_VAL_TO_ENTT_VAL_ID_ENTT_ID` (`value_id`,`entity_id`),
-            DROP KEY `CAT_PRD_ENTT_MDA_GLR_VAL_TO_ENTT_ROW_ID_CAT_PRD_ENTT_ROW_ID`,
+            CHANGE `row_id` `entity_id` INT(10) UNSIGNED NOT NULL COMMENT 'Product Entity ID',
+            DROP INDEX `CAT_PRD_ENTT_MDA_GLR_VAL_TO_ENTT_ROW_ID_CAT_PRD_ENTT_ROW_ID`,
+            ADD UNIQUE KEY `CAT_PRD_ENTT_MDA_GLR_VAL_TO_ENTT_VAL_ID_ENTT_ID` (`value_id`, `entity_id`),
             ADD KEY `CAT_PRD_ENTT_MDA_GLR_VAL_TO_ENTT_ENTT_ID_CAT_PRD_ENTT_ENTT_ID` (`entity_id`);
         ALTER TABLE `catalog_product_entity_text`
             CHANGE `row_id` `entity_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Entity ID',
@@ -433,8 +432,11 @@ BEGIN
             ADD PRIMARY KEY (`rule_id`),
             DROP KEY `SALESRULE_CREATED_IN`,
             DROP KEY `SALESRULE_UPDATED_IN`,
-            DROP KEY `SALESRULE_RULE_ID_SEQUENCE_SALESRULE_SEQUENCE_VALUE`,
             DROP KEY `SALESRULE_RULE_ID`;
+        ALTER TABLE `salesrule_label`
+            CHANGE `row_id` `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule ID',
+            DROP INDEX `SALESRULE_LABEL_ROW_ID_STORE_ID`,
+            ADD UNIQUE KEY `SALESRULE_LABEL_RULE_ID_STORE_ID` (`rule_id`,`store_id`);
         ALTER TABLE `salesrule_customer_group`
             CHANGE `row_id` `rule_id` int(10) unsigned NOT NULL COMMENT 'Rule ID',
             DROP PRIMARY KEY,

@@ -140,24 +140,22 @@ BEGIN
             DROP FOREIGN KEY `AMASTY_BANNERS_LITE_BANNER_DATA_SALESRULE_ID_SALESRULE_RULE_ID`;
         ALTER TABLE `amasty_banners_lite_rule`
             DROP FOREIGN KEY `AMASTY_BANNERS_LITE_RULE_SALESRULE_ID_SALESRULE_RULE_ID`;
-        ALTER TABLE `amasty_acart_history`
-            DROP FOREIGN KEY `AMASTY_ACART_HISTORY_SALES_RULE_ID_SALESRULE_RULE_ID`;
-        ALTER TABLE `amasty_acart_schedule`
-            DROP FOREIGN KEY `AMASTY_ACART_SCHEDULE_SALES_RULE_ID_SALESRULE_RULE_ID`;
         ALTER TABLE `amasty_amrules_rule`
             DROP FOREIGN KEY `AMASTY_AMRULES_RULE_SALESRULE_ID_SALESRULE_ROW_ID`;
-        ALTER TABLE `smile_elasticsuitecatalog_category_filterable_attribute`
-            DROP FOREIGN KEY `FK_8B0BDE1CA9474CFD234FCD0FEBDC0225`;
-        ALTER TABLE `smile_virtualcategory_catalog_category_product_position`
-            DROP FOREIGN KEY `FK_9A80162E8ADF9FB814AC79D709D977F3`;
-        ALTER TABLE `smile_elasticsuite_optimizer_limitation`
-            DROP FOREIGN KEY `FK_DECB3B36711079998CA4D3DB38F2E0EB`;
         ALTER TABLE `catalog_product_frontend_action`
             DROP FOREIGN KEY `CAT_PRD_FRONTEND_ACTION_PRD_ID_CAT_PRD_ENTT_ENTT_ID`;
-        ALTER TABLE `smile_virtualcategory_catalog_category_product_position`
-            DROP FOREIGN KEY `FK_D8ED66CF4B5DA2EE349B79458FFC6587`;
-        ALTER TABLE `smile_elasticsuitecatalog_search_query_product_position`
-            DROP FOREIGN KEY `FK_E51230BD209344C6172518E1E4908CDA`;
+        ALTER TABLE `catalog_product_frontend_action`
+            DROP FOREIGN KEY `CAT_PRD_FRONTEND_ACTION_PRD_ID_CAT_PRD_ENTT_ENTT_ID`;
+        ALTER TABLE `amasty_blog_posts_products`
+            DROP FOREIGN KEY `AMASTY_BLOG_POSTS_PRDS_PRD_ID_CAT_PRD_ENTT_ENTT_ID`;
+        ALTER TABLE `globale_fixed_price`
+            DROP FOREIGN KEY `GLOBALE_FIXED_PRICE_ENTITY_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID`;
+        ALTER TABLE `wclprima_stock_item`
+            DROP FOREIGN KEY `WCLPRIMA_STOCK_ITEM_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID`;
+        ALTER TABLE `salesrule_label`
+            DROP FOREIGN KEY `SALESRULE_LABEL_ROW_ID_SALESRULE_ROW_ID`;
+        ALTER TABLE `amasty_amrules_usage_counter`
+            DROP FOREIGN KEY `AMASTY_AMRULES_USAGE_COUNTER_SALESRULE_ID_SALESRULE_RULE_ID`;
         SET FOREIGN_KEY_CHECKS=1;
     COMMIT;
 END

@@ -119,18 +119,16 @@ BEGIN
             ADD CONSTRAINT `WEEE_TAX_ENTITY_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE;
         ALTER TABLE `wishlist_item`
             ADD CONSTRAINT `WISHLIST_ITEM_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE;
-        ALTER TABLE `smile_elasticsuitecatalog_category_filterable_attribute`
-            ADD CONSTRAINT `FK_8B0BDE1CA9474CFD234FCD0FEBDC0225` FOREIGN KEY (`entity_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE;
-        ALTER TABLE `smile_virtualcategory_catalog_category_product_position`
-            ADD CONSTRAINT `FK_9A80162E8ADF9FB814AC79D709D977F3` FOREIGN KEY (`category_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE;
-        ALTER TABLE `smile_elasticsuite_optimizer_limitation`
-            ADD CONSTRAINT `FK_DECB3B36711079998CA4D3DB38F2E0EB` FOREIGN KEY (`category_id`) REFERENCES `catalog_category_entity` (`entity_id`) ON DELETE CASCADE;
         ALTER TABLE `catalog_product_frontend_action`
             ADD CONSTRAINT `CAT_PRD_FRONTEND_ACTION_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE;
-        ALTER TABLE `smile_virtualcategory_catalog_category_product_position`
-            ADD CONSTRAINT `FK_D8ED66CF4B5DA2EE349B79458FFC6587` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE;
-        ALTER TABLE `smile_elasticsuitecatalog_search_query_product_position`
-            ADD CONSTRAINT `FK_E51230BD209344C6172518E1E4908CDA` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE;
+        ALTER TABLE `amasty_blog_posts_products`
+            ADD CONSTRAINT `AMASTY_BLOG_POSTS_PRDS_PRD_ID_CAT_PRD_ENTT_ENTT_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE;
+        ALTER TABLE `globale_fixed_price`
+            ADD CONSTRAINT `GLOBALE_FIXED_PRICE_ENTITY_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID` FOREIGN KEY (`entity_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE;
+        ALTER TABLE `wclprima_stock_item`
+            ADD CONSTRAINT `WCLPRIMA_STOCK_ITEM_PRODUCT_ID_CATALOG_PRODUCT_ENTITY_ENTITY_ID` FOREIGN KEY (`product_id`) REFERENCES `catalog_product_entity` (`entity_id`) ON DELETE CASCADE;
+        ALTER TABLE `amasty_amrules_usage_counter`
+            ADD CONSTRAINT `AMASTY_AMRULES_USAGE_COUNTER_SALESRULE_ID_SALESRULE_RULE_ID` FOREIGN KEY (`salesrule_id`) REFERENCES `salesrule` (`rule_id`) ON DELETE CASCADE;
         SET FOREIGN_KEY_CHECKS=1;
     COMMIT;
 END
